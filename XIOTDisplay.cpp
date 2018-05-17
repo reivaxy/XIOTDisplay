@@ -3,6 +3,8 @@
 
 DisplayClass::DisplayClass(SSD1306* display): XOLEDDisplayClass(display) {
 }
+DisplayClass::DisplayClass(int addr, int sda, int scl): XOLEDDisplayClass(addr, sda, scl) {
+}
 
 void DisplayClass::batteryIcon(bool blink) {
   setIcon(0, 66, blink);
