@@ -31,13 +31,13 @@ void DisplayClass::wifiIcon(bool blink, WifiType type) {
       icon = 78;
       break;
   }
-  setIcon(2, icon, blink);
+  setIcon(3, icon, blink);
 }
 void DisplayClass::gsmIcon(bool blink) {
-  setIcon(3, 74, blink);
+  setIcon(2, 74, blink);
 }
 void DisplayClass::roamingIcon(bool blink) {
-  setIcon(3, 73, blink);
+  setIcon(2, 73, blink);
 }
 void DisplayClass::refreshDateTime(const char* dateTime) {
   // If icon 0 is showing the clock, delete it.
