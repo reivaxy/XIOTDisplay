@@ -15,8 +15,11 @@ void DisplayClass::clockIcon(bool blink) {
 void DisplayClass::emptyBatteryIcon(bool blink) {
   setIcon(0, 70, blink);
 }
-void DisplayClass::alertIcon(bool blink) {
+void DisplayClass::alertIconOn(bool blink) {
   setIcon(1, 71, blink);
+}
+void DisplayClass::alertIconOff() {
+  setIcon(1, 32);
 }
 void DisplayClass::wifiIcon(bool blink, WifiType type) {
   char icon = 72;

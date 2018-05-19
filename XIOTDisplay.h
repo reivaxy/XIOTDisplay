@@ -18,7 +18,8 @@ public:
   void batteryIcon(bool blink);
   void clockIcon(bool blink);
   void emptyBatteryIcon(bool blink);
-  void alertIcon(bool blink);
+  void alertIconOn(bool blink);
+  void alertIconOff();
   void wifiIcon(bool blink, WifiType type);
   void gsmIcon(bool blink);
   void roamingIcon(bool blink);
