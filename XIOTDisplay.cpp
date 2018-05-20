@@ -3,9 +3,11 @@
 
 DisplayClass::DisplayClass(SSD1306* display):XOLEDDisplayClass(display) {
   setTransientDuration(1, 3000);
+  setTransientDuration(2, 3000);
 }
 DisplayClass::DisplayClass(int addr, int sda, int scl):XOLEDDisplayClass(addr, sda, scl) {
   setTransientDuration(1, 3000);
+  setTransientDuration(2, 3000);
 }
 
 void DisplayClass::batteryIcon(bool blink) {
@@ -63,7 +65,8 @@ void DisplayClass::setLine(int offset, const char *text) {
   XOLEDDisplayClass::setLine(offset, text);
 }
 void DisplayClass::setLine(int offset, const char *text, bool transient, bool blink) {
-  if((offset == 1) && (strlen(text) > 0)){
+  // line 4 contains the date/time, refreshed every second...
+  if((offset < 4) && (strlen(text) > 0)) {
     Serial.println(text);
   }
   XOLEDDisplayClass::setLine(offset, text, transient, blink);
