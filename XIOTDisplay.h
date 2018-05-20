@@ -11,7 +11,7 @@
 
 enum WifiType { AP, STA, AP_STA };
 
-class DisplayClass: public XOLEDDisplayClass {
+class DisplayClass:public XOLEDDisplayClass {
 public:
   DisplayClass(SSD1306* display);
   DisplayClass(int addr, int sda, int scl);
@@ -25,4 +25,6 @@ public:
   void roamingIcon(bool blink);
   void refreshDateTime(const char *dateTime);
   void blinkDateTime(bool blink);
+  void setLine(int offset, const char *text);
+  void setLine(int offset, const char *text, bool transient, bool blink);
 };

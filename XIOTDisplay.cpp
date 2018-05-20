@@ -1,9 +1,11 @@
 
 #include "XIOTDisplay.h"
 
-DisplayClass::DisplayClass(SSD1306* display): XOLEDDisplayClass(display) {
+DisplayClass::DisplayClass(SSD1306* display):XOLEDDisplayClass(display) {
+  setTransientDuration(1, 3000);
 }
-DisplayClass::DisplayClass(int addr, int sda, int scl): XOLEDDisplayClass(addr, sda, scl) {
+DisplayClass::DisplayClass(int addr, int sda, int scl):XOLEDDisplayClass(addr, sda, scl) {
+  setTransientDuration(1, 3000);
 }
 
 void DisplayClass::batteryIcon(bool blink) {
@@ -53,3 +55,18 @@ void DisplayClass::refreshDateTime(const char* dateTime) {
 void DisplayClass::blinkDateTime(bool blink) {
   blinkLine(4, true); // blink time
 }
+
+void DisplayClass::setLine(int offset, const char *text) {
+  if(offset == 1) {
+    Serial.println(text);
+  }
+  XOLEDDisplayClass::setLine(offset, text);
+}
+void DisplayClass::setLine(int offset, const char *text, bool transient, bool blink) {
+  if((offset == 1) && (strlen(text) > 0)){
+    Serial.println(text);
+  }
+  XOLEDDisplayClass::setLine(offset, text, transient, blink);
+//  refresh();
+}
+  
