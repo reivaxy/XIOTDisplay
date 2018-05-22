@@ -54,7 +54,9 @@ void DisplayClass::refreshDateTime(const char* dateTime) {
   if (getIconChar(0) == 75) {
     setIcon(0, BLANK_ICON); // Hide clock icon
   }
-  setLine(4, dateTime, false, false);  // Display time not blinking
+  if(!_hideDateTime) {
+    setLine(4, dateTime, false, false);  // Display time not blinking
+  }
 }
 
 void DisplayClass::blinkDateTime(bool blink) {
@@ -75,4 +77,7 @@ void DisplayClass::setLine(int offset, const char *text, bool transient, bool bl
   XOLEDDisplayClass::setLine(offset, text, transient, blink);
 //  refresh();
 }
-  
+ 
+void DisplayClass::hideDateTime(bool flag) {
+  _hideDateTime = flag;
+} 

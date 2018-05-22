@@ -16,6 +16,7 @@ public:
   DisplayClass(SSD1306* display);
   DisplayClass(int addr, int sda, int scl);
   void init();
+  void hideDateTime(bool);
   void batteryIcon(bool blink);
   void clockIcon(bool blink);
   void emptyBatteryIcon(bool blink);
@@ -28,4 +29,6 @@ public:
   void blinkDateTime(bool blink);
   void setLine(int offset, const char *text);
   void setLine(int offset, const char *text, bool transient, bool blink);
+  
+  bool _hideDateTime = false;
 };
