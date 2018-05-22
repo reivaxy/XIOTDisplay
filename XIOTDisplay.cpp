@@ -2,14 +2,17 @@
 #include "XIOTDisplay.h"
 
 DisplayClass::DisplayClass(SSD1306* display):XOLEDDisplayClass(display) {
-  setTransientDuration(1, 3000);
-  setTransientDuration(2, 3000);
+  init();
 }
 DisplayClass::DisplayClass(int addr, int sda, int scl):XOLEDDisplayClass(addr, sda, scl) {
-  setTransientDuration(1, 3000);
-  setTransientDuration(2, 3000);
+  init();
 }
 
+void DisplayClass::init() {
+  setTransientDuration(1, 3000);
+  setTransientDuration(2, 3000);
+  setLineAlignment(4, TEXT_ALIGN_RIGHT);
+}
 void DisplayClass::batteryIcon(bool blink) {
   setIcon(0, 66, blink);
 }

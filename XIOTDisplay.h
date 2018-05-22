@@ -15,6 +15,7 @@ class DisplayClass:public XOLEDDisplayClass {
 public:
   DisplayClass(SSD1306* display);
   DisplayClass(int addr, int sda, int scl);
+  void init();
   void batteryIcon(bool blink);
   void clockIcon(bool blink);
   void emptyBatteryIcon(bool blink);
