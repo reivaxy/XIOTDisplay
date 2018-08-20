@@ -13,8 +13,8 @@ enum WifiType { AP, STA, AP_STA };
 
 class DisplayClass:public XOLEDDisplayClass {
 public:
-  DisplayClass(SSD1306* display);
-  DisplayClass(int addr, int sda, int scl);
+  DisplayClass(SSD1306* display, bool flipScreen = true, uint8_t brightness = 100);
+  DisplayClass(int addr, int sda, int scl, bool flipScreen = true, uint8_t brightness = 100);
   void init();
   void hideDateTime(bool);
   void batteryIcon(bool blink);

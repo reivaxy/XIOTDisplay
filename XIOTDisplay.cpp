@@ -1,10 +1,10 @@
 
 #include "XIOTDisplay.h"
 
-DisplayClass::DisplayClass(SSD1306* display):XOLEDDisplayClass(display) {
+DisplayClass::DisplayClass(SSD1306* display, bool flipScreen, uint8_t brightness):XOLEDDisplayClass(display, flipScreen, brightness) {
   init();
 }
-DisplayClass::DisplayClass(int addr, int sda, int scl):XOLEDDisplayClass(addr, sda, scl) {
+DisplayClass::DisplayClass(int addr, int sda, int scl, bool flipScreen, uint8_t brightness):XOLEDDisplayClass(addr, sda, scl, flipScreen, brightness) {
   init();
 }
 
