@@ -9,10 +9,12 @@ DisplayClass::DisplayClass(int addr, int sda, int scl, bool flipScreen, uint8_t 
 }
 
 void DisplayClass::init() {
+  XOLEDDisplayClass::resetLinesAndIcons();
   setTransientDuration(1, 3000);
   setTransientDuration(2, 3000);
   setLineAlignment(4, TEXT_ALIGN_RIGHT);
 }
+
 void DisplayClass::batteryIcon(bool blink) {
   setIcon(0, 66, blink);
 }
