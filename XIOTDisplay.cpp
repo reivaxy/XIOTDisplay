@@ -72,8 +72,12 @@ void DisplayClass::setLine(int offset, const char *text) {
   XOLEDDisplayClass::setLine(offset, text);
 }
 void DisplayClass::setLine(int offset, const char *text, bool transient, bool blink) {
+  setLine(offset, text, transient, blink, COPY_SERIAL);
+}
+
+void DisplayClass::setLine(int offset, const char *text, bool transient, bool blink, bool toSerial) {
   // line 4 contains the date/time, refreshed every second...
-  if((offset < 4) && (strlen(text) > 0)) {
+  if(toSerial && (offset < 4) && (strlen(text) > 0)) {
     Serial.println(text);
   }
   XOLEDDisplayClass::setLine(offset, text, transient, blink);

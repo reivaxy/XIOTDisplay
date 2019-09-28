@@ -6,6 +6,8 @@
 #define NOT_BLINKING false
 #define TRANSIENT true
 #define NOT_TRANSIENT false
+#define COPY_SERIAL true
+#define NOT_COPY_SERIAL false
 
 #define BLANK_ICON 65 // move this to xoled lib ?
 
@@ -29,6 +31,7 @@ public:
   void blinkDateTime(bool blink);
   void setLine(int offset, const char *text);
   void setLine(int offset, const char *text, bool transient, bool blink);
+  void setLine(int offset, const char *text, bool transient, bool blink, bool toSerial);
   
   bool _hideDateTime = false;
 };
